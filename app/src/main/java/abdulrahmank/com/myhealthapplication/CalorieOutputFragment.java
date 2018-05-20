@@ -13,11 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import java.time.OffsetTime;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CalorieOutputFragment extends Fragment {
+public class CalorieOutputFragment extends OutputFragment {
 
     @BindView(R.id.calorie_progress_bar)
     ProgressBar calorieProgressBar;
@@ -32,6 +34,9 @@ public class CalorieOutputFragment extends Fragment {
     }
 
     public void setCalorieProgress(int calories) {
+        if(calories > 500) {
+            calorieProgressBar.setProgressDrawable(new ColorDrawable(Color.RED));
+        }
         calorieProgressBar.setProgress(calories);
     }
 }

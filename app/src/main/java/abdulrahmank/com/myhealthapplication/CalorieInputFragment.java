@@ -1,5 +1,6 @@
 package abdulrahmank.com.myhealthapplication;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -32,12 +33,14 @@ public class CalorieInputFragment extends Fragment {
         return view;
     }
 
-    public void setCalorieManager(CalorieInputFragmentCalorieManager calorieManager) {
-        this.calorieManager = calorieManager;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.calorieManager = (CalorieInputFragmentCalorieManager) context;
     }
 
     @OnClick(R.id.calorie_submit_btn)
     public void onCalorieSubmit() {
-        this.calorieManager.updateCalories(Integer.parseInt(calorieEditText.getText().toString()));
+        calorieManager.updateCalories(Integer.parseInt(calorieEditText.getText().toString()));
     }
 }

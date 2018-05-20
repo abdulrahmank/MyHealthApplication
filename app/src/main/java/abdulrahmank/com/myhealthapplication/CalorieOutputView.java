@@ -1,6 +1,7 @@
 package abdulrahmank.com.myhealthapplication;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -26,7 +27,8 @@ public class CalorieOutputView extends RelativeLayout {
         ButterKnife.bind(this, view);
     }
 
-    public void setCalorieProgress(int calories) {
-        calorieProgressBar.setProgress(calories);
+    public void setCalorieProgress(Calorie calories) {
+        calorieProgressBar.setProgressDrawable(new ColorDrawable(calories.getColor()));
+        calorieProgressBar.setProgress(calories.getValue());
     }
 }

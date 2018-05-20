@@ -25,6 +25,6 @@ public class CalorieTrackerActivityWithCustomView extends AppCompatActivity impl
     @Override
     public void updateCalories(int calories) {
         int calorieProgress = calories * 100 / DEFAULT_FULL_CALORIE;
-        outputView.setCalorieProgress(calorieProgress);
+        outputView.setCalorieProgress(Calorie.createCalroieEnumFor(calorieProgress));
     }
 }

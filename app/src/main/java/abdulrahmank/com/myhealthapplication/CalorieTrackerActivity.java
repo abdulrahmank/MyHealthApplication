@@ -1,14 +1,15 @@
 package abdulrahmank.com.myhealthapplication;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 public class CalorieTrackerActivity extends AppCompatActivity implements CalorieInputFragment.CalorieInputFragmentCalorieManager {
 
     private static final int DEFAULT_FULL_CALORIE = 1000;
-    private CalorieOutputFragment outputFragment;
-    private CalorieInputFragment inputFragment;
+    private OutputFragment outputFragment;
+    private Fragment inputFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +17,6 @@ public class CalorieTrackerActivity extends AppCompatActivity implements Calorie
         setContentView(R.layout.activity_main);
 
         inputFragment = new CalorieInputFragment();
-        inputFragment.setCalorieManager(this);
         outputFragment = new CalorieOutputFragment();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
